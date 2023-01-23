@@ -2,10 +2,10 @@
 
 # <h1 align=center> **PROYECTO FINAL ** </h1>
 
-##### ANGEL ZAVALETA 
-##### JOSÉ ACEVEDO 
-##### LEONARDO CUETO
-##### NICOLÁS LIRA
+##### - ANGEL ZAVALETA 
+##### - JOSÉ ACEVEDO 
+##### - LEONARDO CUETO
+##### - NICOLÁS LIRA
 
 # <h1 align=center>**`OLIST`**</h1>
 
@@ -45,33 +45,33 @@ Objetivo: Proponer mantener ese producto en stock por ciudad y período de tiemp
 
 ## Alcance y fuera de alcance
 
------ Motivación del proyecto –
+-- Motivación del proyecto
 - Ayudar a mejorar el proceso de ventas a través de un análisis de negocios basado en KPI’s para proponer a nuestro cliente una opciones de mejora en sus servicios como E-Commerce
 
------ Objetivos 
+-- Objetivos 
 - Verificar la calidad de los datos y proceder con ETL
 - Implementar Datawarehouse como modelo de base de datos.
 - Presentar un Dashboard con indicadores de desempeño. 
 - Crear una aplicación para predecir los productos en tendencia basados en un modelo de ML.
 
 
------ Supuestos
+-- Supuestos
 - Datasets brindan información confiable para proyección y análisis de datos.
 - Tiempo suficiente para término de proyecto.
 - Disponibilidad en tiempo por parte del equipo.
 - Los integrantes del equipo permanezcan hasta culminación del proyecto.
 
------ Restricciones 
+-- Restricciones 
 - Se debe culminar el proyecto en 3 semanas.
 - Equipo de trabajo con mínimo 4 integrantes.
 - Contar con los perfiles de Data Science asumiendo los roles de Analista e Ingeniería de Datos.
 
------ Exclusiones -- 
+-- Exclusiones
 -Un Dashboard, mediante el software Power BI y presentación con Streamlit.
 -Datawarehouse con respaldo en GitHub, diseñado con SQLAlquemy y SQLite
 -Metodología Ágil, uso de Trello como herramientas para gestión de proyectos.
 
------ Criterios de Aceptación 
+-- Criterios de Aceptación
 - El dashboard debe ser funcional y entendible
 - Una base de datos sólida
 - EDA de calidad en los entregables.
