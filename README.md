@@ -46,40 +46,35 @@ Objetivo: Proponer mantener ese producto en stock por ciudad y período de tiemp
 ## Alcance y fuera de alcance
 
 ----- Motivación del proyecto –
-Otorgar al cliente una mejor gestión de sus productos a través de una DataWarehouse funcional, además presentar indicadores de desempeño KPI’s que puedan aumentar sus ventas.
+- Ayudar a mejorar el proceso de ventas a través de un análisis de negocios basado en KPI’s para proponer a nuestro cliente una opciones de mejora en sus servicios como E-Commerce
 
 ----- Objetivos 
-— Realizar un EDA y verificar la calidad de los datos.
-— Diseñar el Dashboard basado en los KPIs para análisis. 
-— Crear un DataWarehouse.
-— Proponer un modelo de ML para predecir un KPI.
+- Verificar la calidad de los datos y proceder con ETL
+- Implementar Datawarehouse como modelo de base de datos.
+- Presentar un Dashboard con indicadores de desempeño. 
+- Crear una aplicación para predecir los productos en tendencia basados en un modelo de ML.
+
 
 ----- Supuestos
 - Datasets brindan información confiable para proyección y análisis de datos.
 - Tiempo suficiente para término de proyecto.
-	- Disponibilidad en tiempo por parte del equipo para la realización de algunas actividades.
- 	- Los integrantes del equipo permanezcan hasta la entrega del proyecto.
+- Disponibilidad en tiempo por parte del equipo.
+- Los integrantes del equipo permanezcan hasta culminación del proyecto.
 
 ----- Restricciones 
 - Se debe culminar el proyecto en 3 semanas.
-- Equipo de trabajo funcional con requisito mínimo de 4 integrantes.
-- Contar con los perfiles de Analista e Ingeniería de Datos.
-
+- Equipo de trabajo con mínimo 4 integrantes.
+- Contar con los perfiles de Data Science asumiendo los roles de Analista e Ingeniería de Datos.
 
 ----- Exclusiones -- 
-Creación de un Dashboard, mediante el uso exclusivo de Power BI como software.
-SQLite de manera local con respaldo en GitHub
-Regresión Logística
-Metodología Ágil, trello, herramientas para gestión de proyectos.
-
+-Un Dashboard, mediante el software Power BI y presentación con Streamlit.
+-Datawarehouse con respaldo en GitHub, diseñado con SQLAlquemy y SQLite
+-Metodología Ágil, uso de Trello como herramientas para gestión de proyectos.
 
 ----- Criterios de Aceptación 
 - El dashboard debe ser funcional y entendible
 - Una base de datos sólida
-- EDA de calidad los entregables. 
-
------ Criterio de Término -- En la demo funcional realizada 
-
+- EDA de calidad en los entregables.
 
 ## Solución propuesta
 1. Stack tecnologico
