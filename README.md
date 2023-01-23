@@ -103,7 +103,7 @@ SCRUM (metodología ágil)
 
 5. Cronograma general
 
-<img src="Trello.png" alt="Image" height="820" width="790" />
+<img src="/src/Trello.png" alt="Image" height="820" width="790" />
 
 ## **Estructura del proyecto**
 
@@ -118,4 +118,4 @@ y los archivos
 3. eda.ipynb - contieneel código generado para la realización de las tareas de la primer semana
 
 4. E-Commerce.md - contiene la descripción del proyecto a realizar
-# Leonardo1278-PFT15_OLIST_ECOMERCE
+
