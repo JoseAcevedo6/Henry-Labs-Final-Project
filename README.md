@@ -23,7 +23,7 @@ Olist es una compañía brasileña prestadora de servicio e-commerce para PYME
 
 ## **Rol a desarrollar**
 
-Con el objetivo primordial de seguir conectando a pequeñas empresas (PYMES) con mercados más grandes y mejorar la experiencia del usuario, SLG-Solutions se enfoca en encontrar soluciones innovadores que permitan a sus usuarios vender sus productos a un mayor número de clientes.
+Con el objetivo primordial de seguir conectando a pequeñas empresas (PYMES) con mercados más grandes y mejorar la experiencia del usuario, SLG-Bi Analitics se enfoca en encontrar soluciones innovadores que permitan a sus usuarios vender sus productos a un mayor número de clientes.
 Para lograrlo, se analizaron los datos de Olist de 2016 a 2018, con lo que se busca entregar un MVP (minimum viable product).
 
 ## Entendimiento de la situación actual
