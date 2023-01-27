@@ -23,9 +23,8 @@ Olist es una compañía brasileña prestadora de servicio e-commerce para PYME
 
 ## **Rol a desarrollar**
 
-Con el objetivo primordial de seguir conectando a pequeñas empresas (PYMES) con mercados más grandes y mejorar la experiencia del usuario, Olist los contrata como consultores externos para encontrar soluciones innovadores que permitan a sus usuarios vender sus productos a un mayor número de clientes.
-Para lograrlo, les disponibiliza sus datos de 2016 a 2018 con lo que deberán entregar un MVP (minimum viable product).
-
+Con el objetivo primordial de seguir conectando a pequeñas empresas (PYMES) con mercados más grandes y mejorar la experiencia del usuario, SLG-Solutions se enfoca en encontrar soluciones innovadores que permitan a sus usuarios vender sus productos a un mayor número de clientes.
+Para lograrlo, se analizaron los datos de Olist de 2016 a 2018, con lo que de busca entregar un MVP (minimum viable product).
 
 ## Entendimiento de la situación actual
 
