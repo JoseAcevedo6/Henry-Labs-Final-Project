@@ -17,9 +17,14 @@ justo en este parte comienza en Analisis Exploratiorio de Datos a tomar forma, p
 
 ## **Propuesta de trabajo**
 
-El proyecto consiste en la ingesta de información que hace referencia a la base de datos de los accesos a internet en Argentina, dándonos los registros del número de conexiones por año, velocidad promedio de bajada,
-localidades con mayor conexión a internet, entre otros.
-Posteriormente se realiza un EDA y un poco Business Analytics para poder generar una conclusión  y diversos KPI's en base a ellos.
+En 2021, la venta minorista de productos a través de e-commerce significó un saldo aproximado de 5.2 trillones de dólares en todo el mundo y se infiere que dicha cifra aumentará un 56% en los próximos años, llegando a los 8.1 trillones en 2026.
+
+Olist es una compañía brasileña prestadora de servicio e-commerce para PYMES que funciona como un marketplace, es decir, funciona como “tienda de tiendas” donde diferentes vendedores pueden ofrecer sus productos a consumidores finales.
+
+## **Rol a desarrollar**
+
+Con el objetivo primordial de seguir conectando a pequeñas empresas (PYMES) con mercados más grandes y mejorar la experiencia del usuario, Olist los contrata como consultores externos para encontrar soluciones innovadores que permitan a sus usuarios vender sus productos a un mayor número de clientes.
+Para lograrlo, les disponibiliza sus datos de 2016 a 2018 con lo que deberán entregar un MVP (minimum viable product).
 
 
 ## Entendimiento de la situación actual
