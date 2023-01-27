@@ -8,9 +8,12 @@ customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "gre
 
 
 class App(customtkinter.CTk):
-    db_name = 'olist.db'
+    
+
     def __init__(self):
         super().__init__()
+        self.db_name = 'olist.db'
+        
 
         # configure window
         self.title("CustomTkinter complex_example.py")
@@ -54,20 +57,11 @@ class App(customtkinter.CTk):
 
 
 
-      
-
     def open_input_dialog_event(self):
         dialog = customtkinter.CTkInputDialog(text="Type in a number:", title="CTkInputDialog")
         print("CTkInputDialog:", dialog.get_input())
 
-    def run_query(self, query, parameters=()):
-        with sq.connect(self.db_name) as conexion:
-            cursor = conexion.cursor()
-            result = cursor.execute(query, parameters)
-            conexion.commit()
-            #  conexion.close()
 
-        return result
 
     def get_product(self):
 
@@ -76,6 +70,30 @@ class App(customtkinter.CTk):
         db_rows = self.run_query(query)
         for row in db_rows:
             self.tree.insert('', 0, text=row[1], values=row[2])
+
+
+
+
+    def runQuery(self, query, args=(), bool=False):
+
+        with sq.connect(self.db_name) as conexion:
+            cursor = conexion.cursor()
+            cursor.execute(query, args)
+            if bool:
+                conexion.commit()
+            else:
+                return cursor.fetchall()
+
+    def ventana1(self,):
+        return 0 
+    
+
+#runQuery("SELECT * FROM product_category")
+
+#runQuery("INSERT INTO product_category values(NULL, %s,%s),
+#          ("ropa","clothes"), True)
+
+
 
 if __name__ == "__main__":
     app = App()
