@@ -1,6 +1,6 @@
 <p align=center><img src=https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png><p>
 
-# <h1 align=center> **PROYECTO FINAL ** </h1>
+# <h1 align=center> PROYECTO FINAL </h1>
 
 ##### - ANGEL ZAVALETA 
 ##### - JOSÉ ACEVEDO 
@@ -10,18 +10,21 @@
 # <h1 align=center>**`OLIST`**</h1>
 
 
-## **Introducción**
+## Introducción
 
-La parte de Business Analytics es una de las más importantes dentro de todo el mundo del procesamiento de datos, 
-justo en esta parte comienza en Analisis Exploratiorio de Datos a tomar forma, para poder ir sacando conclusiones a medida que nos vamos adentrando en los Datasets
+Business Intelligence (BI) es un tipo de software que se alimenta de datos de negocios y presenta reportes, paneles, tablas y gráficos de forma amigable para el usuario. Las herramientas de BI permiten a los usuarios de negocio acceder a diferentes tipos de datos: históricos y actuales, de terceros e internos, así como datos semiestructurados y datos no estructurados como las redes sociales. Los usuarios pueden analizar esta información para obtener insights sobre el rendimiento del negocio.
 
-## **Propuesta de trabajo**
+Según la revista CIO: "Aunque la BI no les dice a los usuarios empresariales qué hacer o qué sucederá si toman un determinado curso, la BI tampoco se trata únicamente de generar informes. Más bien, BI ofrece una forma para que las personas examinen los datos para comprender las tendencias y canalizar los insights".1
+
+Las organizaciones pueden utilizar la información obtenida de BI y el análisis de datos para mejorar las decisiones comerciales, identificar problemas, detectar tendencias del mercado y encontrar nuevos ingresos u oportunidades comerciales.
+
+## Propuesta de trabajo
 
 En 2021, la venta minorista de productos a través de e-commerce significó un saldo aproximado de 5.2 trillones de dólares en todo el mundo y se infiere que dicha cifra aumentará un 56% en los próximos años, llegando a los 8.1 trillones en 2026.
 
 Olist es una compañía brasileña prestadora de servicio e-commerce para PYMES que funciona como un marketplace, es decir, funciona como “tienda de tiendas” donde diferentes vendedores pueden ofrecer sus productos a consumidores finales.
 
-## **Rol a desarrollar**
+## Rol a desarrollar
 
 Con el objetivo primordial de seguir conectando a pequeñas empresas (PYMES) con mercados más grandes y mejorar la experiencia del usuario, SLG-Bi Analitics se enfoca en encontrar soluciones innovadores que permitan a sus usuarios vender sus productos a un mayor número de clientes.
 Para lograrlo, se analizaron los datos de Olist de 2016 a 2018, con lo que se busca entregar un MVP (minimum viable product).
