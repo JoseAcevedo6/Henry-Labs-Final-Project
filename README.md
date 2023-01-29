@@ -13,7 +13,7 @@
 ## **Introducción**
 
 La parte de Business Analytics es una de las más importantes dentro de todo el mundo del procesamiento de datos, 
-justo en este parte comienza en Analisis Exploratiorio de Datos a tomar forma, para poder ir sacando conclusiones a medida que nos vamos adentrando en los Datasets
+justo en esta parte comienza en Analisis Exploratiorio de Datos a tomar forma, para poder ir sacando conclusiones a medida que nos vamos adentrando en los Datasets
 
 ## **Propuesta de trabajo**
 
