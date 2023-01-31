@@ -83,7 +83,7 @@ KPI 3: Identificar los 5~10 productos más vendidos y los más populares por tri
 - Una base de datos sólida.
 - EDA de calidad en los entregables.
 
-## Solución propuesta
+## ** Solución propuesta **
 #### 1. Stack tecnologico
 
 <img src="https://th.bing.com/th/id/OIP.fbVr5gXeIrChfkbOU_S3vgAAAA?pid=ImgDet&rs=1" style="width: 3vw; min-width: 100px;" />  <img src="https://th.bing.com/th/id/OIP.p9U41JwQ1DIfoRou4qIJvAHaC_?pid=ImgDet&rs=1" style="width: 5vw; min-width: 120px;" />   <img src="https://eucariotacdn.azureedge.net/wp-content/uploads/2020/01/PowerBI.jpg" alt="Image" height="80" width="80">  <img src="https://th.bing.com/th/id/R.289ed655c5900c9df33d3ba90e2b52a3?rik=WM47Wyh8ioZM%2fA&pid=ImgRaw&r=0" alt="Image" height="80" width="90">  
@@ -113,7 +113,8 @@ https://docs.google.com/document/d/13yU2EQ6eCFdESCwuP8pINDENgTCQCFEzSmVKqX98OL8/
 ** entregables por semana!
 1) propuesta de trabajo
 2) stack elegido y fundamentacion, flujo de trabajo
-3# dashboard, modelo ML 
+3) dashboard, modelo ML 
+
 ** VER punto 5. (agregar como archivos importantes)
 
 #### 4. Roles y responsabilidades
@@ -132,8 +133,8 @@ https://trello.com/b/zj0GHlc3/proyectofinal
 ## **Estructura del proyecto**
 
 El proyecto tiene 2 carpetas principales: 
-- Datasets - contiene todos los archivos csv con los que se realizó el trabajo.
-- Power BI - contiene el dashboard en formato '.pbix' y una captura de pantalla de el diagrama ER.
+1) Datasets - contiene todos los archivos csv con los que se realizó el trabajo.
+2) Power BI - contiene el dashboard en formato '.pbix' y una captura de pantalla de el diagrama ER.
 
 Los archivos importantes son:
 - Olist_database.zip - contiene la base de datos en un archivo '.db'.
