@@ -41,44 +41,47 @@ Sin embargo, el E-commerce tiene algunos inconvenientes, como el potencial de fr
 ## Objetivos específicos del trabajo y del grupo
 
 
-KPI 1: Con respecto a los MQLs, analizar cómo la venta de los nuevos "MQLs (vendedores)"  afectaría el ingreso de Olist.
-Objetivo: Acortar/apresurar el tiempo de “aceptación” a Olist para generar más ingresos. (Mejorar procesos)
+KPI 1: Con respecto a los MQLs, analizar cómo la venta de los nuevos "MQLs (vendedores)" afectaría el ingreso de Olist.
+
+Objetivo: Reducir el tiempo de ingreso (aceptación) de los clientes potenciales a Olist, para aumentar sus ganancias.
 
 KPI 2: Calcular la variación porcentual de ventas por "categoría de productos" (por trimestre).
-Objetivo: Identificar tendencias de ventas a través del tiempo, lo que se traduce en que el negocio del E-commerce crece permanentemente así como sus ganancias.
+
+Objetivo: Identificar las tendencias de ventas por categorías de productos a través del tiempo, ayudando a Olist a descubrir oportunidades comerciales por temporada.
 
 KPI 3: Identificar los 5~10 productos más vendidos y los más populares por trimestre y por estado.
-Objetivo: Proponer mantener los productos con mayor demanda en stock para aumentar las ventas, ahorrar en costos de envíos y/o almacenaje. Por otro lado, recomendar los más populares (identificados a través de un coeficiente de popularidad) y así aumentar las ventas.
+
+Objetivo: Establecer un ranking de productos con mejor score basado en el indice de popularidad, logrando posicionar los productos que generen mayor rentabilidad.
 
 ## Alcance y fuera de alcance
 
-Motivación del proyecto
+#### Motivación del proyecto
 - Ayudar a mejorar el proceso de ventas a través de un análisis de negocios basado en KPI’s para proponer a nuestro cliente (Olist) opciones de mejora en sus servicios como E-Commerce.
 
-Objetivos 
+#### Objetivos 
 - Verificar la calidad de los datos y proceder con ETL.
 - Implementar Datawarehouse como modelo de base de datos.
 - Presentar un Dashboard con indicadores de desempeño. 
 - Crear una aplicación para predecir los productos en tendencia basada en un modelo de ML.
 
-Supuestos
+#### Supuestos
 - Datasets que brindan información confiable para proyección y análisis de datos.
 - Tiempo suficiente para término de proyecto.
 - Disponibilidad de tiempo por parte del equipo.
 - Los integrantes del equipo permanezcan hasta la culminación del proyecto.
 
-Restricciones 
+#### Restricciones 
 - Se debe culminar el proyecto en 3 semanas.
 - Equipo de trabajo con mínimo 4 integrantes.
 - Contar con los perfiles de Data Science asumiendo los roles de Analista e Ingeniero de Datos.
 
-Exclusiones
--Un Dashboard, mediante el software Power BI y presentación con Streamlit.
--DataWarehouse con respaldo en GitHub, diseñado con SQLAlchemy y SQLite.
--Metodología híbrida: metodología ágil combinado con la pauta entregada por soyHenry. 
--Uso de Trello como herramienta para gestión de proyectos.
+#### Exclusiones
+- Un Dashboard, mediante el software Power BI y presentación con Streamlit.
+- DataWarehouse con respaldo en GitHub, diseñado con SQLAlchemy y SQLite.
+- Metodología híbrida: metodología ágil combinado con la pauta entregada por soyHenry. 
+- Uso de Trello como herramienta para gestión de proyectos.
 
-Criterios de Aceptación
+#### Criterios de Aceptación
 - El dashboard debe ser funcional y entendible.
 - Una base de datos sólida.
 - EDA de calidad en los entregables.
@@ -129,12 +132,12 @@ https://trello.com/b/zj0GHlc3/proyectofinal
 ## **Estructura del proyecto**
 
 El proyecto tiene 2 carpetas principales: 
--Datasets - contiene todos los archivos csv con los que se realizó el trabajo.
--Power BI - contiene el dashboard en formato '.pbix' y una captura de pantalla de el diagrama ER.
+- Datasets - contiene todos los archivos csv con los que se realizó el trabajo.
+- Power BI - contiene el dashboard en formato '.pbix' y una captura de pantalla de el diagrama ER.
 
 Los archivos importantes son:
--Olist_database.zip - contiene la base de datos en un archivo '.db'.
--ETL.ipynb
+- Olist_database.zip - contiene la base de datos en un archivo '.db'.
+- ETL.ipynb
 
 
 
