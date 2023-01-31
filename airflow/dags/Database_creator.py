@@ -118,7 +118,7 @@ class Close_deals(Base):
 
 
 # Se crea una instancia del motor de base de datos SQLite
-engine = create_engine('sqlite:///olist.db', connect_args={'check_same_thread': False}, pool_pre_ping=True, echo=True)
+engine = create_engine('sqlite:///../../Database/Olist.db', connect_args={'check_same_thread': False}, pool_pre_ping=True, echo=True)
 
 # Se crean las tablas en base de datos enlazadas al motor de base de datos
 Base.metadata.create_all(bind=engine)
