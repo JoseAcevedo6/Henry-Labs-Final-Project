@@ -126,7 +126,7 @@ https://docs.google.com/document/d/13yU2EQ6eCFdESCwuP8pINDENgTCQCFEzSmVKqX98OL8/
 
 #### 5. Cronograma general
 
-<img src="/src/Trello.png" alt="Image" height="820" width="790" />
+<img src="/src/Trello.png" alt="Image" height="730" width="790" />
 
 https://trello.com/b/zj0GHlc3/proyectofinal
 
