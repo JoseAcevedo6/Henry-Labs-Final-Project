@@ -40,7 +40,6 @@ Sin embargo, el E-commerce tiene algunos inconvenientes, como el potencial de fr
 
 ## Objetivos específicos del trabajo y del grupo
 
-
 KPI 1: Con respecto a los MQLs, analizar cómo la venta de los nuevos "MQLs (vendedores)" afectaría el ingreso de Olist.
 - Objetivo: Reducir el tiempo de ingreso (aceptación) de los clientes potenciales a Olist, para aumentar sus ganancias.
 
@@ -57,7 +56,7 @@ KPI 3: Identificar los 5~10 productos más vendidos y los más populares por tri
 
 #### Objetivos 
 - Verificar la calidad de los datos y proceder con ETL.
-- Implementar Datawarehouse como modelo de base de datos.
+- Implementar Data Warehouse como modelo de base de datos.
 - Presentar un Dashboard con indicadores de desempeño. 
 - Crear una aplicación para predecir los productos en tendencia basada en un modelo de ML.
 
@@ -105,7 +104,7 @@ Por qué decimos que es una "metodología híbrida"?
 
 A pesar de que todos los integrantes cumplieron su rol y sus objetivos propuestos cada semana (metodología ágil), podemos decir que también estuvimos 
 cumpliendo con los objetivos propuestos por la pauta de corrección del proyecto entregada por soyHenry. Más específicamente con los "hitos y entregables" de 
-cada semana, teniendo en cuenta, también, los puntos importantes (o guías).
+cada semana, teniendo en cuenta también, los puntos importantes (o guías).
 
 https://docs.google.com/document/d/13yU2EQ6eCFdESCwuP8pINDENgTCQCFEzSmVKqX98OL8/edit#heading=h.srjioslsjk9j
 
