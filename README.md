@@ -9,6 +9,7 @@
 
 # <h1 align=center>**`OLIST`**</h1>
 
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Feminence.ch%2Fen%2Fbest-strategies-and-tactics-to-boost-your-e-commerce-sales-in-2022%2F&psig=AOvVaw3lnuXL2KQso4O_EgJweluv&ust=1675275964661000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIiAxci38vwCFQAAAAAdAAAAABAE" alt="Image" height="750" width="300" />
 
 ## Introducción
 
@@ -110,13 +111,9 @@ https://docs.google.com/document/d/13yU2EQ6eCFdESCwuP8pINDENgTCQCFEzSmVKqX98OL8/
 
 #### 3. Diseño detallado
 
-1) Propuesta de trabajo: 
+Propuesta de trabajo: 
 - Reporte en Streamlit para mejorar el proceso de ventas basado en un análisis guiado a través de un Dashboard con KPI’s y métricas, con recomendaciones para toma de decisiones.
 - Aplicación en Tkinter con el objetivo de predecir los productos con mejor score basado en un modelo de  machine learning.
-2) stack elegido y fundamentacion, flujo de trabajo
-3) dashboard, modelo ML 
-
-** VER punto 5. (agregar como archivos importantes)
 
 #### 4. Roles y responsabilidades
 
