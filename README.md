@@ -9,7 +9,7 @@
 
 # <h1 align=center>**`OLIST`**</h1>
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Feminence.ch%2Fen%2Fbest-strategies-and-tactics-to-boost-your-e-commerce-sales-in-2022%2F&psig=AOvVaw3lnuXL2KQso4O_EgJweluv&ust=1675275964661000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIiAxci38vwCFQAAAAAdAAAAABAE" alt="Image" height="750" width="300" />
+<img src="https://eminence.ch/wp-content/uploads/2022/02/commerce-tips-2022.jpg" alt="Image" height="750" width="300" />
 
 ## Introducción
 
