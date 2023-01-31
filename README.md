@@ -9,7 +9,7 @@
 
 # <h1 align=center>**`OLIST`**</h1>
 
-<img src="https://eminence.ch/wp-content/uploads/2022/02/commerce-tips-2022.jpg" alt="Image" height="300" width="750" />
+<p align=center><img src="https://eminence.ch/wp-content/uploads/2022/02/commerce-tips-2022.jpg" alt="Image" height="300" width="750" /><p>
 
 ## Introducción
 
@@ -124,7 +124,7 @@ Propuesta de trabajo:
 
 #### 5. Cronograma general
 
-<img src="/src/Trello2.png" alt="Image" height="650" width="790" />
+<img src="/src/Trello2.png" alt="Image" height="650" width="900" />
 
 https://trello.com/b/zj0GHlc3/proyectofinal
 
