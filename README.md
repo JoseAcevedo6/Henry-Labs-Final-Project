@@ -84,6 +84,7 @@ KPI 3: Identificar los 5~10 productos más vendidos y los más populares por tri
 - EDA de calidad en los entregables.
 
 ## ** Solución propuesta **
+
 #### 1. Stack tecnologico
 
 <img src="https://th.bing.com/th/id/OIP.fbVr5gXeIrChfkbOU_S3vgAAAA?pid=ImgDet&rs=1" style="width: 3vw; min-width: 100px;" />  <img src="https://th.bing.com/th/id/OIP.p9U41JwQ1DIfoRou4qIJvAHaC_?pid=ImgDet&rs=1" style="width: 5vw; min-width: 120px;" />   <img src="https://eucariotacdn.azureedge.net/wp-content/uploads/2020/01/PowerBI.jpg" alt="Image" height="80" width="80">  <img src="https://th.bing.com/th/id/R.289ed655c5900c9df33d3ba90e2b52a3?rik=WM47Wyh8ioZM%2fA&pid=ImgRaw&r=0" alt="Image" height="80" width="90">  
