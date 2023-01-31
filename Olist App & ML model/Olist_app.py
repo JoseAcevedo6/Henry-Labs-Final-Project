@@ -5,6 +5,8 @@ import sqlite3 as sq
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import joblib
+
 
 
 # Inicia classe App, dentro se definen todas las funciones y especificaciones de la app customtkinter 
@@ -188,11 +190,11 @@ class App():
         state = self.optionmenu_1.get()
         if state == "Todos" and self.timemenu.get() == "":
         # no cambia ninguno 
-            query = 'SELECT sum(o.review_score) as Cantidad, pr.product_category_name_english FROM order_items o inner join products p on o.product_id = p.product_id inner join product_category pr on p.product_category_id = pr.product_category_id inner join sellers s on s.seller_id = o.seller_id inner join geolocation g on s.CEP = g.CEP group by pr.product_category_name_english order by Cantidad desc limit 10'
+            query = 'SELECT AVG(o.review_score) as Cantidad, pr.product_category_name_english FROM order_items o inner join products p on o.product_id = p.product_id inner join product_category pr on p.product_category_id = pr.product_category_id inner join sellers s on s.seller_id = o.seller_id inner join geolocation g on s.CEP = g.CEP group by pr.product_category_name_english order by Cantidad desc limit 10'
             db_rows = self.run_query(query)
         elif state != "Todos" and self.timemenu.get() == "":
         # cambia el estado pero no el tiempo 
-            query = f'SELECT sum(o.review_score) as Cantidad, pr.product_category_name_english FROM order_items o inner join products p on o.product_id = p.product_id inner join product_category pr on p.product_category_id = pr.product_category_id inner join sellers s on s.seller_id = o.seller_id inner join geolocation g on s.CEP = g.CEP  where g.estado = "{state}" group by pr.product_category_name_english order by Cantidad desc limit 10'
+            query = f'SELECT AVG(o.review_score) as Cantidad, pr.product_category_name_english FROM order_items o inner join products p on o.product_id = p.product_id inner join product_category pr on p.product_category_id = pr.product_category_id inner join sellers s on s.seller_id = o.seller_id inner join geolocation g on s.CEP = g.CEP  where g.estado = "{state}" group by pr.product_category_name_english order by Cantidad desc limit 10'
             db_rows = self.run_query(query)
             pass
         elif self.timemenu.get() != "" and state == "Todos":
@@ -280,7 +282,7 @@ class App():
         for record in records:
             self.tableview.delete(record)
 
-        query = """SELECT
+        query_gral = """SELECT
                     oi.product_id, oi.seller_id, strftime('%s', oi.shipping_limit_date) shipping_limit_date, oi.price, oi.freight_value,
                     o.customer_id, strftime('%s', o.order_purchase_timestamp) order_purchase_timestamp, strftime('%s', o.order_approved_at) order_approved_at, strftime('%s', o.order_delivered_carrier_date) order_delivered_carrier_date, strftime('%s', o.order_delivered_customer_date) order_delivered_customer_date, strftime('%s', o.order_estimated_delivery_date) order_estimated_delivery_date,
                     p.product_name_lenght, p.product_description_lenght, p.product_photos_qty, p.product_weight_g, p.product_length_cm, p.product_height_cm, p.product_width_cm,
@@ -300,15 +302,15 @@ class App():
                 JOIN order_payments op ON (op.order_id = o.order_id)
                 JOIN geolocation g_sell ON (s.CEP = g_sell.CEP)
                 WHERE o.order_status != 'canceled'
-                AND o.order_delivered_customer_date != '2016-01-01 00:00:00.000000'
-                AND o.order_purchase_timestamp BETWEEN DATETIME('now', '-7 days') AND DATETIME('now')"""
+                AND o.order_delivered_customer_date != '2016-01-01 00:00:00.000000'"""
+        
 
         # Consulting data
         state = self.optionmenu_1.get()
         if state == "Todos" and self.timemenu.get() == "":
             # no se cambia ninguno
-            query = ('SELECT count(distinct o.order_id) as Cantidad, pr.product_category_name_english FROM order_items o inner join products p on (o.product_id = p.product_id) inner join orders ord on (ord.order_id = o.order_id) inner join product_category pr on (p.product_category_id = pr.product_category_id) inner join customers c on (c.customer_id = ord.customer_id) inner join geolocation g on (c.CEP = g.CEP) group by pr.product_category_name_english order by Cantidad desc limit 10') 
-            df_to_predict = self.run_query(query, to_df=True)
+            query_spec = " AND o.order_purchase_timestamp BETWEEN DATETIME('now', '-7 days') AND DATETIME('now')"
+            df_to_predict = self.run_query(query_gral + query_spec, to_df=True)
         elif state != "Todos" and self.timemenu.get() == "":
             #cambia el estado pero no el tiempo 
             query = f'SELECT count(distinct o.order_id) as Cantidad, pr.product_category_name_english FROM order_items o inner join products p on (o.product_id = p.product_id) inner join orders ord on (ord.order_id = o.order_id) inner join product_category pr on (p.product_category_id = pr.product_category_id) inner join customers c on (c.customer_id = ord.customer_id) inner join geolocation g on (c.CEP = g.CEP) where g.estado = "{state}" group by pr.product_category_name_english order by Cantidad desc limit 10'
@@ -321,6 +323,15 @@ class App():
             # se cambia el tiempo y el estado 
             query = f'SELECT count(distinct o.order_id) as Cantidad, pr.product_category_name_english FROM order_items o inner join products p on (o.product_id = p.product_id) inner join orders ord on (ord.order_id = o.order_id) inner join product_category pr on (p.product_category_id = pr.product_category_id) inner join customers c on (c.customer_id = ord.customer_id) inner join geolocation g on (c.CEP = g.CEP) where g.estado = "{state}" and ord.order_purchase_timestamp between "{self.timemenu.get()}" and "{self.timemenu2.get()}" group by pr.product_category_name_english order by Cantidad desc limit 10'
             df_to_predict = self.run_query(query, to_df=True)
+
+        pipe = joblib.load('Olist App & ML model\GaussPipeline.pkl')
+        score = pipe.predict(df_to_predict)
+
+        df_to_predict = pd.concat([df_to_predict, score], axis=1)
+
+        df_to_predict[['score', 'payment_value', '']]
+
+        
         
         # generando gráfico de ventas
         x = len(df_to_predict)
