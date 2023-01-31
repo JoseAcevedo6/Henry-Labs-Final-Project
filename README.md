@@ -83,7 +83,7 @@ KPI 3: Identificar los 5~10 productos más vendidos y los más populares por tri
 - Una base de datos sólida.
 - EDA de calidad en los entregables.
 
-## ** Solución propuesta **
+## Solución propuesta 
 
 #### 1. Stack tecnologico
 
@@ -131,7 +131,7 @@ https://docs.google.com/document/d/13yU2EQ6eCFdESCwuP8pINDENgTCQCFEzSmVKqX98OL8/
 
 https://trello.com/b/zj0GHlc3/proyectofinal
 
-## **Estructura del proyecto**
+## Estructura del proyecto
 
 El proyecto tiene 2 carpetas principales: 
 1) Datasets - contiene todos los archivos csv con los que se realizó el trabajo.
