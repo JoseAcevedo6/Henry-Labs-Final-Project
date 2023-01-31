@@ -21,7 +21,7 @@ class App():
         # se setean la apariencia y el color por default de la app de customtkinter
         ctk.set_appearance_mode("dark")  
         ctk.set_default_color_theme("dark-blue") 
-        self.db_name = 'olistDataBase.db'
+        self.db_name = 'Olist.db'
         self.mainframe = ctk.CTkFrame(self.root,height=800, width=400)
         self.mainframe.grid(row=0, column=0, padx=30, pady=40,sticky=E)
 
