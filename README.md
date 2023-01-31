@@ -86,19 +86,19 @@ KPI 3: Identificar los 5~10 productos más vendidos y los más populares por tri
 
 #### 1. Stack tecnologico
 
-<img src="https://th.bing.com/th/id/OIP.fbVr5gXeIrChfkbOU_S3vgAAAA?pid=ImgDet&rs=1" style="width: 3vw; min-width: 100px;" />  <img src="https://th.bing.com/th/id/OIP.p9U41JwQ1DIfoRou4qIJvAHaC_?pid=ImgDet&rs=1" style="width: 5vw; min-width: 120px;" />   <img src="https://eucariotacdn.azureedge.net/wp-content/uploads/2020/01/PowerBI.jpg" alt="Image" height="80" width="80">  <img src="https://th.bing.com/th/id/R.289ed655c5900c9df33d3ba90e2b52a3?rik=WM47Wyh8ioZM%2fA&pid=ImgRaw&r=0" alt="Image" height="80" width="90">  
-<img src="https://th.bing.com/th/id/OIP.8m6LjbgWmIFCteelnno2rQHaEo?pid=ImgDet&rs=1" alt="Image" height="80" width="90"><img src="https://www.01net.it/wp-content/uploads/sites/14/2021/04/streamlit-logo-300x176.png" style="width: 3vw; min-width: 100px;" /><img src="https://www.picademie.nl/wp-content/uploads/2020/11/Tkinter2.png" alt="Image" height="100" width="170"><img src="https://th.bing.com/th/id/R.f4ce6025a42918aaac87560bde710518?rik=FoEcSfIbPvRu1g&pid=ImgRaw&r=0" alt="Image" height="60" width="90" />
+<img src="/src/stack_tecno.png" alt="Image" />
 
-
-
-	Python, Pandas, Power BI, MySQL, SQLite, Streamlit, Tkinter, Sklearn
+	Python, Pandas, Numpy, SQLalchemy, Power BI, SQLite, Streamlit, Tkinter, Sklearn
 
 #### 2. Metodología de trabajo:
-Metodología híbrida: 
-- SCRUM (metodología ágil)
-- Hitos y entregables (pauta de soyHenry)
 
-<img src="https://th.bing.com/th/id/OIP.Y5sAbcI4o9zQVSrvgDo7ZQHaHK?pid=ImgDet&rs=1" alt="Image" height="180" width="190">
+Metodología híbrida: 
+
+- Metodología ágil
+
+<img src="/src/meto_agil.png" alt="Image"  />
+
+- Hitos y entregables (pauta de soyHenry)
 
 Por qué decimos que es una "metodología híbrida"? 
 
@@ -110,8 +110,9 @@ https://docs.google.com/document/d/13yU2EQ6eCFdESCwuP8pINDENgTCQCFEzSmVKqX98OL8/
 
 #### 3. Diseño detallado
 
-** entregables por semana!
-1) propuesta de trabajo
+1) Propuesta de trabajo: 
+- Reporte en Streamlit para mejorar el proceso de ventas basado en un análisis guiado a través de un Dashboard con KPI’s y métricas, con recomendaciones para toma de decisiones.
+- Aplicación en Tkinter con el objetivo de predecir los productos con mejor score basado en un modelo de  machine learning.
 2) stack elegido y fundamentacion, flujo de trabajo
 3) dashboard, modelo ML 
 
@@ -126,7 +127,7 @@ https://docs.google.com/document/d/13yU2EQ6eCFdESCwuP8pINDENgTCQCFEzSmVKqX98OL8/
 
 #### 5. Cronograma general
 
-<img src="/src/Trello.png" alt="Image" height="730" width="790" />
+<img src="/src/Trello2.png" alt="Image" height="730" width="790" />
 
 https://trello.com/b/zj0GHlc3/proyectofinal
 
@@ -134,11 +135,13 @@ https://trello.com/b/zj0GHlc3/proyectofinal
 
 El proyecto tiene 2 carpetas principales: 
 1) Datasets - contiene todos los archivos csv con los que se realizó el trabajo.
-2) Power BI - contiene el dashboard en formato '.pbix' y una captura de pantalla de el diagrama ER.
+2) airflow
+3) Olist App & ML model
+4) Power BI - contiene el dashboard en formato '.pbix' y una captura de pantalla de el diagrama ER.
 
 Los archivos importantes son:
-- Olist_database.zip - contiene la base de datos en un archivo '.db'.
-- ETL.ipynb
+- Olist.db - es la base de datos sobre la que trabajamos
+
 
 
 
