@@ -55,14 +55,14 @@ def transform(df, target='', test_size=False, random_state=False, ros=False):
         return X, y
 
 df_train_test = pd.read_csv('datasets\olist_to_train_test.csv')
-X_Train, X_Test, Y_Train, Y_Test = transform(df_train_test, target='review_score', test_size=0.2, random_state=40, ros=0.8)
+X_Train, X_Test, Y_Train, Y_Test = transform(df_train_test, target='review_score', test_size=0.15, random_state=42, ros=0.60)
 
 pipe = Pipeline([('GaussianNB', GaussianNB())])
 
 pipe.fit(X_Train, Y_Train.values.ravel())
 gaus_Y_Pred = pipe.predict(X_Test)
 
-joblib.dump(pipe, 'GaussPipeline.pkl')
+joblib.dump(pipe, 'Olist App & ML model\GaussPipeline.pkl')
 
 #classification_report
 print(classification_report(Y_Test, gaus_Y_Pred))
