@@ -42,16 +42,13 @@ Sin embargo, el E-commerce tiene algunos inconvenientes, como el potencial de fr
 
 
 KPI 1: Con respecto a los MQLs, analizar cómo la venta de los nuevos "MQLs (vendedores)" afectaría el ingreso de Olist.
-
-Objetivo: Reducir el tiempo de ingreso (aceptación) de los clientes potenciales a Olist, para aumentar sus ganancias.
+- Objetivo: Reducir el tiempo de ingreso (aceptación) de los clientes potenciales a Olist, para aumentar sus ganancias.
 
 KPI 2: Calcular la variación porcentual de ventas por "categoría de productos" (por trimestre).
-
-Objetivo: Identificar las tendencias de ventas por categorías de productos a través del tiempo, ayudando a Olist a descubrir oportunidades comerciales por temporada.
+- Objetivo: Identificar las tendencias de ventas por categorías de productos a través del tiempo, ayudando a Olist a descubrir oportunidades comerciales por temporada.
 
 KPI 3: Identificar los 5~10 productos más vendidos y los más populares por trimestre y por estado.
-
-Objetivo: Establecer un ranking de productos con mejor score basado en el indice de popularidad, logrando posicionar los productos que generen mayor rentabilidad.
+- Objetivo: Establecer un ranking de productos con mejor score basado en el indice de popularidad, logrando posicionar los productos que generen mayor rentabilidad.
 
 ## Alcance y fuera de alcance
 
@@ -98,23 +95,26 @@ Objetivo: Establecer un ranking de productos con mejor score basado en el indice
 
 #### 2. Metodología de trabajo:
 Metodología híbrida: 
-SCRUM (metodología ágil)
+- SCRUM (metodología ágil)
+- Hitos y entregables (pauta de soyHenry)
 
 <img src="https://th.bing.com/th/id/OIP.Y5sAbcI4o9zQVSrvgDo7ZQHaHK?pid=ImgDet&rs=1" alt="Image" height="180" width="190">
-Cumplir con los "hitos semanales" de la pauta del proyecto
 
 Por qué decimos que es una "metodología híbrida"? 
+
 A pesar de que todos los integrantes cumplieron su rol y sus objetivos propuestos cada semana (metodología ágil), podemos decir que también estuvimos 
 cumpliendo con los objetivos propuestos por la pauta de corrección del proyecto entregada por soyHenry. Más específicamente con los "hitos y entregables" de 
-cada semana, teniendo en cuenta, también, los puntos importantes (o guías) de cada semana.
+cada semana, teniendo en cuenta, también, los puntos importantes (o guías).
+
+https://docs.google.com/document/d/13yU2EQ6eCFdESCwuP8pINDENgTCQCFEzSmVKqX98OL8/edit#heading=h.srjioslsjk9j
 
 #### 3. Diseño detallado
 
 ** entregables por semana!
-1- propuesta de trabajo
-2- stack elegido y fundamentacion, flujo de trabajo
-3- dashboard, modelo ML 
-** VER punto 5. (agregar como archivo)
+1) propuesta de trabajo
+2) stack elegido y fundamentacion, flujo de trabajo
+3# dashboard, modelo ML 
+** VER punto 5. (agregar como archivos importantes)
 
 #### 4. Roles y responsabilidades
 
