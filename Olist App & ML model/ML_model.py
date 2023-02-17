@@ -13,7 +13,8 @@ from sklearn.metrics import classification_report
 import pandas as pd
 import numpy as np
 
-def transform(df, target='', test_size=False, random_state=False, ros=False):
+
+def transformer(df, target='', test_size=False, random_state=False, ros=False):
 
     ord_enc = OrdinalEncoder(dtype=np.int64)
     one_hot = OneHotEncoder(dtype=np.int64)
@@ -28,11 +29,13 @@ def transform(df, target='', test_size=False, random_state=False, ros=False):
     df = pd.concat([df, df_one_hot], axis=1)
     df.drop('payment_type', axis=1, inplace=True)
 
-    df[[target]] = df[[target]].mask(df[[target]] <= 3, 0)
-    df[[target]] = df[[target]].mask(df[[target]] > 3, 1)
-
-    y = df[[target]]
-    X = df.drop(target, axis=1)
+    if target:
+        df[[target]] = df[[target]].mask(df[[target]] <= 3, 0)
+        df[[target]] = df[[target]].mask(df[[target]] > 3, 1)
+        y = df[[target]]
+        X = df.drop(target, axis=1)
+    else:
+        X = df
 
     scaler = StandardScaler()
 
@@ -52,17 +55,19 @@ def transform(df, target='', test_size=False, random_state=False, ros=False):
 
         X = scaler.fit_transform(X)
 
-        return X, y
+        return X
 
-df_train_test = pd.read_csv('datasets\olist_to_train_test.csv')
-X_Train, X_Test, Y_Train, Y_Test = transform(df_train_test, target='review_score', test_size=0.15, random_state=42, ros=0.60)
+
+df_train_test = pd.read_csv('./Datasets/olist_to_train_test.csv')
+X_Train, X_Test, Y_Train, Y_Test = transformer(
+    df_train_test, target='review_score', test_size=0.15, random_state=42, ros=0.60)
 
 pipe = Pipeline([('GaussianNB', GaussianNB())])
 
 pipe.fit(X_Train, Y_Train.values.ravel())
 gaus_Y_Pred = pipe.predict(X_Test)
 
-joblib.dump(pipe, 'Olist App & ML model\GaussPipeline.pkl')
+joblib.dump(pipe, 'Olist App & ML model/GaussPipeline.pkl')
 
-#classification_report
-print(classification_report(Y_Test, gaus_Y_Pred))
+# Classification_report
+# print(classification_report(Y_Test, gaus_Y_Pred))
