@@ -1,7 +1,6 @@
 from customtkinter import CTk, CTkFrame, CTkLabel, CTkOptionMenu, CTkButton
 from customtkinter import set_appearance_mode, set_default_color_theme
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
-from matplotlib.figure import Figure
 from matplotlib import pyplot as plt, figure, colormaps as cm, ticker
 from tkcalendar import DateEntry
 from tkinter import ttk, TOP, BOTH
@@ -9,6 +8,8 @@ import sqlite3 as sq
 import pandas as pd
 import numpy as np
 import joblib
+
+from ML_model import transformer
 
 
 # Inicia classe App, dentro se definen todas las funciones y especificaciones de la app customtkinter
@@ -145,16 +146,16 @@ class App():
         button_top_sales_estado.grid(row=0, column=1, padx=10, pady=10)
 
         # Configuración de boton Categorías mejor ranqueadas
-        buttonRank = CTkButton(
+        button_profitability_ratio = CTkButton(
             button_frame, fg_color="transparent", width=200, border_width=2, command=self.get_profitability_ratio,
-            text="Categorías por rentabilidad")
-        buttonRank.grid(row=0, column=2, padx=10, pady=10)
+            text="Productos por rentabilidad")
+        button_profitability_ratio.grid(row=0, column=2, padx=10, pady=10)
 
         # Configuración Botón Predicción
-        predictionButton = CTkButton(
-            button_frame, fg_color="transparent", width=200, border_width=2, command=self.get_profitability_ratio,
+        button_prediction = CTkButton(
+            button_frame, fg_color="transparent", width=200, border_width=2, command=self.get_prediction,
             text="Generar predicción")
-        predictionButton.grid(row=0, column=3, padx=10, pady=10)
+        button_prediction.grid(row=0, column=3, padx=10, pady=10)
 
     def run_query(self, query):
         """Esta función toma como parametros una query, parametros de filtro en caso de necesitarse, ejecuta dicha
@@ -175,25 +176,29 @@ class App():
     def graph_gen(self, query, args={}):
 
         def format_tooltip(x, y):
+
             idx = int(np.round(y))
+
             if idx < 0 or idx >= len(df_query):
                 info_label.configure(text="")
                 return ""
+
             y_col = df_query[args['y_col']].iloc[idx]
             x_col = df_query[args['x_col']].iloc[idx]
             agg_col = df_query[args['agg_col']].iloc[idx]
+
             if args['x_col'] == 'Coeficiente':
                 id_prod = df_query['product_id'].iloc[idx]
                 count = df_query['Cantidad'].iloc[idx]
                 amount = df_query['Monto'].iloc[idx]
-                info_label.configure(
-                    text=args['string'] % (y_col, id_prod, count, amount, x_col, agg_col))
+                info_label.configure(text=args['string'] % (y_col, id_prod, count, amount, x_col, agg_col))
             else:
-                info_label.configure(
-                    text=args['string'] % (args['y_col'], y_col, args['xlabel'], x_col, args['agglabel'], agg_col))
+                info_label.configure(text=args['string'] % (args['y_col'], y_col, x_col, agg_col))
+
             return ""
 
         def format_tick(value, pos):
+
             if value >= 1e7 and value < 1e8:
                 return f'{value/1e7:.1f} B'
             elif value >= 1e6 and value < 1e7:
@@ -210,7 +215,11 @@ class App():
             widget.pack_forget()
 
         # Consulting data
-        df_query = self.run_query(query)
+
+        if isinstance(query, str):
+            df_query = self.run_query(query)
+        else:
+            df_query = query.copy()
         if args['x_col'] == 'Coeficiente':
             df_col = df_query['Coeficiente']
             df_query['Coeficiente'] = round((df_col - min(df_col)) / (max(df_col) - min(df_col)) * 10, 2)
@@ -269,11 +278,11 @@ class App():
 
     def get_sales_category(self):
 
-        query = f'''SELECT product_category_name_spanish AS Categoría, COUNT(*) AS Cantidad, SUM(payment_value) as Monto
-            FROM ({self.gral_query})'''
         state_list = self.state_list.get()
         since_date = self.since_date.get()
         until_date = self.until_date.get()
+        query = f'''SELECT product_category_name_spanish AS Categoría, COUNT(*) AS Cantidad, SUM(payment_value) as Monto
+            FROM ({self.gral_query})'''
 
         if state_list == "Todos":
             filter = f'''WHERE order_purchase_timestamp BETWEEN "{since_date}" AND "{until_date}"
@@ -286,17 +295,17 @@ class App():
         args = {
             'x_col': 'Cantidad', 'y_col': 'Categoría', 'agg_col': 'Monto', 'title': 'Categorías más vendidas',
             'titlepos': .4, 'xlabel': 'Cantidad de ventas', 'ylabel': 'Categorías', 'agglabel': 'Monto de ventas',
-            'xlabelpos': .4, 'string': '%s: %s | %s: %d | %s: R$ %.1f'}
+            'xlabelpos': .4, 'string': '%s: %s | Cantidad de ventas: %d | Monto de ventas: R$ %.1f'}
 
         self.graph_gen(query + filter, args)
 
     def get_sales_state(self):
 
-        query = f'''SELECT estado_customer AS Estado, COUNT(*) AS Cantidad, SUM(payment_value) as Monto
-            FROM ({self.gral_query})'''
         category_list = self.category_list.get()
         since_date = self.since_date.get()
         until_date = self.until_date.get()
+        query = f'''SELECT estado_customer AS Estado, COUNT(*) AS Cantidad, SUM(payment_value) as Monto
+            FROM ({self.gral_query})'''
 
         if category_list == "Todos":
             filter = f'''WHERE order_purchase_timestamp BETWEEN "{since_date}" AND "{until_date}"
@@ -308,21 +317,20 @@ class App():
         args = {
             'x_col': 'Cantidad', 'y_col': 'Estado', 'agg_col': 'Monto', 'title': 'Mayores ventas por estado',
             'titlepos': .47, 'xlabel': 'Cantidad de ventas', 'ylabel': 'Estados', 'agglabel': 'Monto de ventas',
-            'xlabelpos': .47, 'string': '%s: %s | %s: %d | %s: R$ %.1f'}
+            'xlabelpos': .47, 'string': '%s: %s | Cantidad de ventas: %d | Monto de ventas: R$ %.1f'}
 
         self.graph_gen(query + filter, args)
 
     def get_profitability_ratio(self):
 
-        query = f'''SELECT product_category_name_spanish AS Categoría, product_id, COUNT(*) AS Cantidad,
-            ROUND(SUM(price + freight_value), 2) AS Monto, ROUND(AVG(review_score), 2) AS Promedio,
-            CAST(ROUND((AVG(review_score)*COUNT(*)*SUM(price + freight_value)), 0) AS INT) AS Coeficiente
-            FROM ({self.gral_query}) '''
-
         state_list = self.state_list.get()
         category_list = self.category_list.get()
         since_date = self.since_date.get()
         until_date = self.until_date.get()
+        query = f'''SELECT product_category_name_spanish AS Categoría, product_id, COUNT(*) AS Cantidad,
+            ROUND(SUM(price + freight_value), 2) AS Monto, ROUND(AVG(review_score), 2) AS Promedio,
+            CAST(ROUND((AVG(review_score)*COUNT(*)*SUM(price + freight_value)), 0) AS INT) AS Coeficiente
+            FROM ({self.gral_query}) '''
 
         if state_list == "Todos" and category_list == "Todos":
             filter = f'''WHERE order_purchase_timestamp BETWEEN "{since_date}" AND "{until_date}" GROUP BY product_id
@@ -352,44 +360,60 @@ class App():
 
     def get_prediction(self):
 
-        query = f"""SELECT
-            product_id, seller_id, strftime('%s', shipping_limit_date) shipping_limit_date, price, freight_value,
-            customer_id, strftime('%s', order_purchase_timestamp) order_purchase_timestamp,
-            strftime('%s', order_approved_at) order_approved_at, strftime('%s', order_delivered_carrier_date)
-            order_delivered_carrier_date, strftime('%s', order_delivered_customer_date) order_delivered_customer_date,
-            strftime('%s', order_estimated_delivery_date) order_estimated_delivery_date, product_name_lenght,
+        state_list = self.state_list.get()
+        category_list = self.category_list.get()
+        until_date = self.until_date.get()
+        query = f'''
+            SELECT
+            product_id, seller_id, strftime("%s", shipping_limit_date) shipping_limit_date, price, freight_value,
+            customer_id, strftime("%s", order_purchase_timestamp) order_purchase_timestamp,
+            strftime("%s", order_approved_at) order_approved_at, strftime("%s", order_delivered_carrier_date)
+            order_delivered_carrier_date, strftime("%s", order_delivered_customer_date) order_delivered_customer_date,
+            strftime("%s", order_estimated_delivery_date) order_estimated_delivery_date, product_name_lenght,
             product_description_lenght, product_photos_qty, product_weight_g, product_length_cm, product_height_cm,
             product_width_cm, product_category_id, CEP_customer, cod_estado_customer, CEP_seller, cod_estado_seller,
-            payment_sequential, payment_type, payment_installments, payment_value  FROM ({self.gral_query})"""
-
-        state_list = self.state_list.get()
-        since_date = self.since_date.get()
-        until_date = self.until_date.get()
+            payment_sequential, payment_type, payment_installments, payment_value, estado_customer,
+            product_category_name_spanish AS Categoría FROM ({self.gral_query}) WHERE order_purchase_timestamp BETWEEN
+            DATETIME("2018-08-29", "-7 days") AND DATETIME("2018-08-29") '''
+        # DATETIME("{until_date}", "-7 days") AND DATETIME("{until_date}")
 
         # Consulting data
-        if state_list == "Todos" and since_date == "":
-            # No se cambia ninguno
-            query_spec = " AND o.order_purchase_timestamp BETWEEN DATETIME('now', '-7 days') AND DATETIME('now')"
-            df_to_predict = self.run_query(self.gral_query + query_spec, to_df=True)
-        elif state_list != "Todos" and since_date == "":
-            # Cambia el estado pero no el tiempo
-            query = f''''''
-            df_to_predict = self.run_query(query, to_df=True)
-        elif since_date != "" and state_list == "Todos":
-            # se cambia el tiempo pero no el estado
-            query = f''''''
-            df_to_predict = self.run_query(query, to_df=True)
-        elif since_date != "" and state_list != "Todos":
-            # se cambia el tiempo y el estado
-            query = f''''''
-            df_to_predict = self.run_query(query, to_df=True)
+        if state_list != 'Todos' and category_list != 'Todos':
+            filter = f'''AND estado_customer = "{state_list}" AND product_category_name_spanish = "{category_list}"'''
+
+        elif state_list == 'Todos' and category_list != 'Todos':
+            filter = f'''AND product_category_name_spanish = "{category_list}"'''
+
+        elif state_list != 'Todos' and category_list == 'Todos':
+            filter = f'''AND estado_customer = "{state_list}"'''
+        else:
+            filter = ''
+
+        query = query + filter
+        df_query = self.run_query(query)
+        df_to_predict = df_query.drop(['estado_customer', 'Categoría'], axis=1)
+        df_to_predict = transformer(df_to_predict)
 
         pipe = joblib.load('Olist App & ML model/GaussPipeline.pkl')
         score = pipe.predict(df_to_predict)
+        score = pd.DataFrame({'review_score': score})
+        score = score.mask(score == 0, 2)
+        score = score.mask(score == 1, 4.5)
+        df_query = pd.concat([df_query, score], axis=1)
+        df_query['Monto'] = df_query['price'] + df_query['freight_value']
+        df_query = df_query[['Categoría', 'product_id', 'Monto', 'review_score']]
+        df_group = df_query.groupby(['product_id', 'Categoría']).agg(
+            Monto=("Monto", "sum"), Promedio=("review_score", "mean"),
+            Cantidad=("product_id", "count")).reset_index()
+        df_group['Coeficiente'] = df_group['Monto'] * df_group['Cantidad'] * df_group['Promedio']
 
-        df_to_predict = pd.concat([df_to_predict, score], axis=1)
+        args = {
+            'x_col': 'Coeficiente', 'y_col': 'Categoría', 'agg_col': 'Promedio',
+            'title': 'Pred. mayor rentabilidad por producto', 'titlepos': .38, 'xlabel': 'Coeficiente de rentabilidad',
+            'ylabel': 'Categorías', 'agglabel': 'Promedio review score', 'xlabelpos': .38,
+            'string': 'Categoría: %s | Producto: %s | Cantidad: %d | Ventas: R$ %.1f | Coeficiente: %.2f | Score: %.2f'}
 
-        df_to_predict[['score', 'payment_value', '']]
+        self.graph_gen(df_group, args)
 
 
 # Creamos un objeto de la clase App y la ejecutamos
