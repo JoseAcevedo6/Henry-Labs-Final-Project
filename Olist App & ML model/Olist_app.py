@@ -392,8 +392,14 @@ class App():
         query = query + filter
         df_query = self.run_query(query)
         df_to_predict = df_query.drop(['estado_customer', 'Categoría'], axis=1)
-        df_to_predict = transformer(df_to_predict)
 
+        '''transformer() genera un error cuando el filtro devuelve pocos datos. 'payment_type' puede traer menos
+        de 4 valores distintos (que fue el numero con el que se entreno el modelo) y por ende el OneHotEncoder generará
+        menos columnas creando conflictos con la cantidad de cols de entrenamiento del pipeline. Para solucionar este
+        error, se necesita integrar las transformaciones al pipeline y no hacerlo de forma esterna con una funcion
+        personalizada como lo es transformer.'''
+
+        df_to_predict = transformer(df_to_predict)
         pipe = joblib.load('Olist App & ML model/GaussPipeline.pkl')
         score = pipe.predict(df_to_predict)
         score = pd.DataFrame({'review_score': score})
